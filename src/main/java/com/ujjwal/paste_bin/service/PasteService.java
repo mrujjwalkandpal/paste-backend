@@ -1,5 +1,6 @@
 package com.ujjwal.paste_bin.service;
 
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import com.ujjwal.paste_bin.model.PasteBin;
@@ -15,6 +16,12 @@ public class PasteService {
 
     public PasteService(PasteRepository pasteRepository){
         this.pasteRepository=pasteRepository;
+    }
+
+    @Scheduled(fixedRate = 300000)
+    public void cleanExpiredPastes() {
+        int deleted = pasteRepository.deleteExpiredPastes();
+        System.out.println("🧹 Deleted expired pastes: " + deleted);
     }
 
     public String getId(String content, int expiry){
