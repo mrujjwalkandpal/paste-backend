@@ -16,6 +16,11 @@ public class PasteViewControlller {
     public PasteViewControlller(PasteService pastService){
         this.pasteService=pastService;
     }
+
+    @GetMapping("/")
+    public String home() {
+        return "Backend is running";
+    }
     @GetMapping("/p/{id}")
     public GetPasteResponse viewPaste(@PathVariable String id) {
         String content= pasteService.getPasteResponse(id);
