@@ -52,6 +52,10 @@ public class PasteRepository{
         if(rows==0) return false;
         else return true;
     }
+    public int deleteExpiredPastes() {
+        String sql = "DELETE FROM pastes WHERE expiry_time < NOW()";
+        return jdbcTemplate.update(sql);
+    }
 
 
 }
