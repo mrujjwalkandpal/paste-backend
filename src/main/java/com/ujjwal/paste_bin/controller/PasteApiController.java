@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @CrossOrigin(origins = {
     "http://localhost:5173",
-    "https://paste-frontend-chi.vercel.app"
+    "https://pasteclip.vercel.app/"
 })
 @RestController
 @RequestMapping("/api/pastes")
