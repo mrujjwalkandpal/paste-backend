@@ -44,11 +44,6 @@ public class PasteApiController{
         return new CreatePasteResponse(id, "/p/"+id);
     }
 
-    @GetMapping("/")
-public String home() {
-    return "Backend is running";
-}
-
     @GetMapping("/{id}")
     public GetPasteResponse getPaste(@PathVariable String id){
         String content= pasteService.getPasteResponse(id);
